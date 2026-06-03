@@ -4,187 +4,175 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ekkarat — AI-Powered Developer</title>
+  <meta name="description" content="Full-Stack Developer ที่ใช้ AI ช่วยพัฒนา ส่งงานเร็วกว่า 3 เท่า Landing Page ฿2,500 ส่งใน 24–48 ชม." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    * { font-family: 'Sarabun', 'Inter', sans-serif; }
-    .gradient-text {
-      background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    :root {
+      --bg: #080808;
+      --surface-1: #111111;
+      --surface-2: #181818;
+      --border: rgba(255,255,255,0.07);
+      --border-hover: rgba(255,255,255,0.15);
+      --accent: #E8FF47;
+      --accent-dim: rgba(232,255,71,0.12);
+      --text-1: #F0EFE9;
+      --text-2: #808080;
+      --text-3: #484848;
     }
-    .hero-bg {
-      background: radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
-                  radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-                  #0a0a0f;
-    }
-    .card-glow:hover {
-      box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
-      transform: translateY(-4px);
-    }
-    .badge {
-      background: rgba(99, 102, 241, 0.15);
-      border: 1px solid rgba(99, 102, 241, 0.3);
-    }
-    .service-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: all 0.3s ease;
-    }
-    .service-card:hover {
-      background: rgba(99, 102, 241, 0.08);
-      border-color: rgba(99, 102, 241, 0.4);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
-    }
-    .timeline-dot {
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
-    }
-    .cta-btn {
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
-      transition: all 0.3s ease;
-    }
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
-    }
-    .nav-blur {
-      backdrop-filter: blur(20px);
-      background: rgba(10,10,15,0.8);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
+    * { font-family: 'Sarabun', 'DM Sans', sans-serif; box-sizing: border-box; }
+    h1, h2, h3, h4, .en { font-family: 'DM Sans', 'Sarabun', sans-serif; }
+    body { background: var(--bg); color: var(--text-1); margin: 0; }
     html { scroll-behavior: smooth; }
-    .ai-tag { animation: float 3s ease-in-out infinite; }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
+
+    /* Nav */
+    nav { background: rgba(8,8,8,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+
+    /* Accent */
+    .accent { color: var(--accent); }
+    .accent-bg { background: var(--accent); color: #080808; }
+    .accent-border { border-color: var(--accent); }
+
+    /* Cards */
+    .card {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      transition: border-color 0.2s ease, transform 0.2s ease;
     }
-    .stat-num {
-      background: linear-gradient(135deg, #6366f1, #06b6d4);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .card-accent:hover { border-color: var(--accent); }
+
+    /* CTA button */
+    .btn-primary {
+      background: var(--accent);
+      color: #080808;
+      font-weight: 700;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-ghost {
+      border: 1px solid var(--border);
+      transition: border-color 0.15s ease;
+    }
+    .btn-ghost:hover { border-color: var(--border-hover); }
+
+    /* Number tags */
+    .num-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: var(--text-3);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    /* Price */
+    .price {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+    }
+
+    /* Divider */
+    hr { border: none; border-top: 1px solid var(--border); }
+
+    /* Dot live */
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .live-dot { animation: pulse 2s ease-in-out infinite; }
+
+    /* Fade in on load */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.6s ease forwards; }
+    .delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .delay-2 { animation-delay: 0.2s; opacity: 0; }
+    .delay-3 { animation-delay: 0.35s; opacity: 0; }
+    .delay-4 { animation-delay: 0.5s; opacity: 0; }
+
+    /* Section label */
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-3);
+    }
+
+    /* Tag chips */
+    .chip {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-2);
+      padding: 4px 10px;
+      border-radius: 99px;
+    }
+    .chip-accent {
+      background: var(--accent-dim);
+      border: 1px solid rgba(232,255,71,0.25);
+      color: var(--accent);
     }
   </style>
 </head>
-<body class="hero-bg text-white min-h-screen">
+<body>
 
   <!-- NAV -->
-  <nav class="nav-blur fixed top-0 left-0 right-0 z-50 px-6 py-4">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <span class="font-bold text-lg gradient-text">Ekkarat.dev</span>
-      <div class="hidden md:flex items-center gap-8 text-sm text-gray-400">
+  <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="#" class="en font-bold text-base tracking-tight" style="color:var(--text-1)">Ekkarat<span class="accent">.</span></a>
+      <div class="hidden md:flex items-center gap-7" style="color:var(--text-2); font-size:14px;">
         <a href="#services" class="hover:text-white transition-colors">บริการ</a>
-        <a href="#portfolio" class="hover:text-white transition-colors">ผลงาน</a>
+        <a href="#work" class="hover:text-white transition-colors">ผลงาน</a>
         <a href="#process" class="hover:text-white transition-colors">ขั้นตอน</a>
-        <a href="#contact" class="hover:text-white transition-colors">ติดต่อ</a>
+        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
       </div>
-      <a href="#contact" class="cta-btn text-sm font-medium px-5 py-2.5 rounded-full">
-        รับงานด่วน ✦
-      </a>
+      <a href="#contact" class="btn-primary en px-5 py-2.5 rounded-xl text-sm font-bold">ปรึกษาฟรี</a>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section class="pt-32 pb-24 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col lg:flex-row items-center gap-16">
-        <div class="flex-1 space-y-8">
-          <div class="flex items-center gap-3">
-            <span class="badge text-xs px-3 py-1.5 rounded-full text-indigo-300 font-medium ai-tag">
-              ⚡ AI-Powered Developer
-            </span>
-            <span class="text-green-400 text-xs flex items-center gap-1.5">
-              <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse inline-block"></span>
-              รับงานอยู่
-            </span>
-          </div>
+  <section class="pt-36 pb-28 px-6">
+    <div class="max-w-5xl mx-auto">
 
-          <h1 class="text-5xl lg:text-6xl font-bold leading-tight">
-            เว็บไซต์สวย<br/>
-            <span class="gradient-text">ส่งเร็ว 24–48 ชม.</span><br/>
-            ราคาที่คุ้มค่า
-          </h1>
+      <!-- Status bar -->
+      <div class="fade-up delay-1 flex items-center gap-3 mb-10">
+        <span class="w-2 h-2 rounded-full live-dot" style="background:var(--accent)"></span>
+        <span class="section-label">รับงานอยู่ · ส่งงานได้ใน 24–48 ชม.</span>
+      </div>
 
-          <p class="text-gray-400 text-lg leading-relaxed max-w-xl">
-            Full-Stack Developer ที่ใช้ AI ช่วยพัฒนา ทำให้ส่งงานได้เร็วกว่าคนอื่น 3 เท่า
-            โดยไม่ลดคุณภาพ — Landing Page, Web App, Chatbot, Automation
-          </p>
+      <!-- Headline -->
+      <h1 class="fade-up delay-2 en font-extrabold leading-none mb-6" style="font-size: clamp(42px, 7vw, 88px); letter-spacing:-0.03em;">
+        Build fast.<br/>
+        <span class="accent">Ship faster.</span>
+      </h1>
 
-          <div class="flex flex-wrap gap-4">
-            <a href="#contact" class="cta-btn font-semibold px-8 py-4 rounded-2xl text-white">
-              ปรึกษาฟรี →
-            </a>
-            <a href="#portfolio" class="border border-white/10 hover:border-white/30 font-medium px-8 py-4 rounded-2xl transition-colors">
-              ดูผลงาน
-            </a>
-          </div>
+      <p class="fade-up delay-3 mb-10 max-w-lg" style="font-size:18px; color:var(--text-2); line-height:1.7;">
+        Full-Stack Developer ที่ใช้ AI ช่วยพัฒนา ทำให้ได้งานคุณภาพสูง
+        ในเวลาที่น้อยกว่า — เว็บไซต์ Chatbot ระบบ Automation
+      </p>
 
-          <!-- Stats -->
-          <div class="flex flex-wrap gap-8 pt-4">
-            <div>
-              <div class="stat-num text-3xl font-bold">24–48h</div>
-              <div class="text-gray-500 text-sm mt-1">เวลาส่งงาน Landing Page</div>
-            </div>
-            <div class="w-px bg-white/10 hidden md:block"></div>
-            <div>
-              <div class="stat-num text-3xl font-bold">฿2,500</div>
-              <div class="text-gray-500 text-sm mt-1">ราคาเริ่มต้น</div>
-            </div>
-            <div class="w-px bg-white/10 hidden md:block"></div>
-            <div>
-              <div class="stat-num text-3xl font-bold">100%</div>
-              <div class="text-gray-500 text-sm mt-1">Satisfaction guarantee</div>
-            </div>
-          </div>
+      <div class="fade-up delay-4 flex flex-wrap gap-3">
+        <a href="#contact" class="btn-primary px-7 py-3.5 rounded-xl text-sm">นัดปรึกษาฟรี →</a>
+        <a href="#services" class="btn-ghost px-7 py-3.5 rounded-xl text-sm" style="color:var(--text-1)">ดูบริการ</a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="fade-up delay-4 flex flex-wrap gap-10 mt-16 pt-10" style="border-top: 1px solid var(--border)">
+        <div>
+          <div class="en font-bold text-3xl accent">24–48h</div>
+          <div class="text-sm mt-1" style="color:var(--text-2)">Landing Page delivery</div>
         </div>
-
-        <!-- Right: Tech Stack Visual -->
-        <div class="flex-shrink-0 w-full lg:w-80">
-          <div class="relative">
-            <div class="service-card rounded-3xl p-6 space-y-4">
-              <div class="text-xs text-gray-500 font-medium uppercase tracking-wider">Tech Stack</div>
-              <div class="grid grid-cols-3 gap-3">
-                <div class="bg-white/5 rounded-xl p-3 text-center">
-                  <div class="text-2xl mb-1">⚛️</div>
-                  <div class="text-xs text-gray-400">React</div>
-                </div>
-                <div class="bg-white/5 rounded-xl p-3 text-center">
-                  <div class="text-2xl mb-1">🔷</div>
-                  <div class="text-xs text-gray-400">TypeScript</div>
-                </div>
-                <div class="bg-white/5 rounded-xl p-3 text-center">
-                  <div class="text-2xl mb-1">🟢</div>
-                  <div class="text-xs text-gray-400">Node.js</div>
-                </div>
-                <div class="bg-white/5 rounded-xl p-3 text-center">
-                  <div class="text-2xl mb-1">🗄️</div>
-                  <div class="text-xs text-gray-400">Supabase</div>
-                </div>
-                <div class="bg-white/5 rounded-xl p-3 text-center">
-                  <div class="text-2xl mb-1">☁️</div>
-                  <div class="text-xs text-gray-400">Cloudflare</div>
-                </div>
-                <div class="bg-white/5 rounded-xl p-3 text-center">
-                  <div class="text-2xl mb-1">🤖</div>
-                  <div class="text-xs text-gray-400">AI/Claude</div>
-                </div>
-              </div>
-              <div class="border-t border-white/5 pt-4">
-                <div class="text-xs text-gray-500 mb-2">ส่งงานสำเร็จ</div>
-                <div class="flex gap-1">
-                  <div class="h-1.5 flex-1 bg-indigo-500 rounded-full"></div>
-                  <div class="h-1.5 flex-1 bg-indigo-500 rounded-full"></div>
-                  <div class="h-1.5 flex-1 bg-indigo-500 rounded-full"></div>
-                  <div class="h-1.5 flex-1 bg-indigo-500 rounded-full"></div>
-                  <div class="h-1.5 flex-1 bg-white/10 rounded-full"></div>
-                </div>
-                <div class="text-right text-xs text-gray-500 mt-1">4/5 งานในสัปดาห์นี้</div>
-              </div>
-            </div>
-          </div>
+        <div>
+          <div class="en font-bold text-3xl" style="color:var(--text-1)">฿2,500</div>
+          <div class="text-sm mt-1" style="color:var(--text-2)">ราคาเริ่มต้น</div>
+        </div>
+        <div>
+          <div class="en font-bold text-3xl" style="color:var(--text-1)">3×</div>
+          <div class="text-sm mt-1" style="color:var(--text-2)">เร็วกว่า dev ทั่วไป</div>
+        </div>
+        <div>
+          <div class="en font-bold text-3xl" style="color:var(--text-1)">Free</div>
+          <div class="text-sm mt-1" style="color:var(--text-2)">ปรึกษาครั้งแรก</div>
         </div>
       </div>
     </div>
@@ -192,201 +180,125 @@
 
   <!-- SERVICES -->
   <section id="services" class="py-24 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <div class="badge inline-block text-xs px-3 py-1.5 rounded-full text-indigo-300 font-medium mb-4">บริการ</div>
-        <h2 class="text-4xl font-bold">ทำอะไรได้บ้าง?</h2>
-        <p class="text-gray-400 mt-4 max-w-xl mx-auto">ทุกงานใช้ AI ช่วยพัฒนา — ได้งานที่มีคุณภาพสูง ส่งเร็ว ราคาเป็นธรรม</p>
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-end justify-between mb-14 flex-wrap gap-4">
+        <div>
+          <div class="section-label mb-3">บริการ</div>
+          <h2 class="en font-bold text-4xl" style="letter-spacing:-0.02em;">What I build</h2>
+        </div>
+        <p class="text-sm max-w-xs" style="color:var(--text-2)">ทุกงานใช้ AI ช่วยพัฒนา — คุณภาพสูง ส่งเร็ว ราคาเป็นธรรม</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Service 1 -->
-        <div class="service-card rounded-2xl p-6 space-y-4">
-          <div class="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center text-2xl">🌐</div>
-          <div>
-            <h3 class="font-semibold text-lg">Landing Page</h3>
-            <p class="text-gray-400 text-sm mt-2">หน้าเว็บสำหรับธุรกิจ สินค้า หรือโปรโมชัน ดีไซน์สวย responsive ทุกอุปกรณ์</p>
-          </div>
-          <div class="border-t border-white/5 pt-4 flex items-end justify-between">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+        <!-- Featured service -->
+        <div class="card card-accent rounded-2xl p-7 md:col-span-2">
+          <div class="flex items-start justify-between flex-wrap gap-4">
             <div>
-              <div class="text-2xl font-bold text-indigo-400">฿2,500</div>
-              <div class="text-xs text-gray-500">ส่งงานใน 24–48 ชม.</div>
+              <div class="chip chip-accent mb-4">เป็นที่ต้องการมาก</div>
+              <h3 class="en font-bold text-2xl mb-3">Landing Page</h3>
+              <p class="text-sm max-w-sm" style="color:var(--text-2); line-height:1.7;">
+                หน้าเว็บสำหรับธุรกิจ สินค้า หรือโปรโมชัน ดีไซน์ modern responsive ทุกอุปกรณ์ SEO-ready
+              </p>
             </div>
-            <span class="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded-full">เป็นที่ต้องการมาก</span>
+            <div class="text-right">
+              <div class="price text-3xl accent">฿2,500</div>
+              <div class="text-xs mt-1.5" style="color:var(--text-3)">ส่งงานใน 24–48 ชม.</div>
+            </div>
           </div>
         </div>
 
-        <!-- Service 2 -->
-        <div class="service-card rounded-2xl p-6 space-y-4">
-          <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center text-2xl">🤖</div>
-          <div>
-            <h3 class="font-semibold text-lg">Line OA Chatbot</h3>
-            <p class="text-gray-400 text-sm mt-2">AI Chatbot บน Line ตอบคำถามลูกค้าอัตโนมัติ ลดภาระทีม support ได้ทันที</p>
-          </div>
-          <div class="border-t border-white/5 pt-4 flex items-end justify-between">
-            <div>
-              <div class="text-2xl font-bold text-purple-400">฿3,500</div>
-              <div class="text-xs text-gray-500">ส่งงานใน 2–3 วัน</div>
-            </div>
-            <span class="bg-yellow-500/20 text-yellow-400 text-xs px-2 py-1 rounded-full">Popular</span>
+        <div class="card card-accent rounded-2xl p-7">
+          <div class="num-tag mb-4">02</div>
+          <h3 class="en font-bold text-xl mb-2">Line OA Chatbot</h3>
+          <p class="text-sm mb-6" style="color:var(--text-2); line-height:1.7;">AI Chatbot ตอบลูกค้าอัตโนมัติ ลด workload ทีม support ทันที</p>
+          <div class="flex items-end justify-between">
+            <div class="price text-2xl" style="color:var(--text-1)">฿3,500</div>
+            <div class="chip">2–3 วัน</div>
           </div>
         </div>
 
-        <!-- Service 3 -->
-        <div class="service-card rounded-2xl p-6 space-y-4">
-          <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center text-2xl">⚡</div>
-          <div>
-            <h3 class="font-semibold text-lg">Web App / Dashboard</h3>
-            <p class="text-gray-400 text-sm mt-2">ระบบ Admin, Dashboard, ระบบจัดการข้อมูล พร้อม Database และ Login</p>
-          </div>
-          <div class="border-t border-white/5 pt-4 flex items-end justify-between">
-            <div>
-              <div class="text-2xl font-bold text-cyan-400">฿8,000+</div>
-              <div class="text-xs text-gray-500">ส่งงานใน 3–7 วัน</div>
-            </div>
-            <span class="bg-blue-500/20 text-blue-400 text-xs px-2 py-1 rounded-full">Full Stack</span>
+        <div class="card card-accent rounded-2xl p-7">
+          <div class="num-tag mb-4">03</div>
+          <h3 class="en font-bold text-xl mb-2">Web App / Dashboard</h3>
+          <p class="text-sm mb-6" style="color:var(--text-2); line-height:1.7;">ระบบ Admin, Dashboard, จัดการข้อมูล พร้อม Database + Auth</p>
+          <div class="flex items-end justify-between">
+            <div class="price text-2xl" style="color:var(--text-1)">฿8,000+</div>
+            <div class="chip">3–7 วัน</div>
           </div>
         </div>
 
-        <!-- Service 4 -->
-        <div class="service-card rounded-2xl p-6 space-y-4">
-          <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center text-2xl">🔧</div>
-          <div>
-            <h3 class="font-semibold text-lg">Automation Script</h3>
-            <p class="text-gray-400 text-sm mt-2">ระบบอัตโนมัติ, scraping, data processing, Google Sheets integration</p>
-          </div>
-          <div class="border-t border-white/5 pt-4 flex items-end justify-between">
-            <div>
-              <div class="text-2xl font-bold text-pink-400">฿1,500+</div>
-              <div class="text-xs text-gray-500">ส่งงานใน 1–2 วัน</div>
-            </div>
-            <span class="bg-pink-500/20 text-pink-400 text-xs px-2 py-1 rounded-full">Quick Win</span>
+        <div class="card card-accent rounded-2xl p-7">
+          <div class="num-tag mb-4">04</div>
+          <h3 class="en font-bold text-xl mb-2">Automation Script</h3>
+          <p class="text-sm mb-6" style="color:var(--text-2); line-height:1.7;">ระบบอัตโนมัติ, scraping, data processing, Google Sheets integration</p>
+          <div class="flex items-end justify-between">
+            <div class="price text-2xl" style="color:var(--text-1)">฿1,500+</div>
+            <div class="chip">1–2 วัน</div>
           </div>
         </div>
 
-        <!-- Service 5 -->
-        <div class="service-card rounded-2xl p-6 space-y-4">
-          <div class="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center text-2xl">🐛</div>
-          <div>
-            <h3 class="font-semibold text-lg">Bug Fix / Code Review</h3>
-            <p class="text-gray-400 text-sm mt-2">แก้บัค ปรับปรุง code, performance optimization, security review</p>
-          </div>
-          <div class="border-t border-white/5 pt-4 flex items-end justify-between">
-            <div>
-              <div class="text-2xl font-bold text-orange-400">฿800+</div>
-              <div class="text-xs text-gray-500">ส่งงานภายในวันเดียว</div>
-            </div>
-            <span class="bg-orange-500/20 text-orange-400 text-xs px-2 py-1 rounded-full">ด่วน</span>
+        <div class="card card-accent rounded-2xl p-7">
+          <div class="num-tag mb-4">05</div>
+          <h3 class="en font-bold text-xl mb-2">Bug Fix / Code Review</h3>
+          <p class="text-sm mb-6" style="color:var(--text-2); line-height:1.7;">แก้บัค, performance optimization, security review รวดเร็ว</p>
+          <div class="flex items-end justify-between">
+            <div class="price text-2xl" style="color:var(--text-1)">฿800+</div>
+            <div class="chip chip-accent">ภายในวัน</div>
           </div>
         </div>
 
-        <!-- Service 6 -->
-        <div class="service-card rounded-2xl p-6 space-y-4">
-          <div class="w-12 h-12 rounded-xl bg-teal-500/20 flex items-center justify-center text-2xl">🧠</div>
-          <div>
-            <h3 class="font-semibold text-lg">AI Consulting</h3>
-            <p class="text-gray-400 text-sm mt-2">ที่ปรึกษาด้านการนำ AI มาใช้ในธุรกิจ ช่วยลดต้นทุน เพิ่มประสิทธิภาพ</p>
-          </div>
-          <div class="border-t border-white/5 pt-4 flex items-end justify-between">
-            <div>
-              <div class="text-2xl font-bold text-teal-400">฿2,000/ชม.</div>
-              <div class="text-xs text-gray-500">นัดปรึกษาได้ทันที</div>
-            </div>
-            <span class="bg-teal-500/20 text-teal-400 text-xs px-2 py-1 rounded-full">ใหม่</span>
+        <div class="card card-accent rounded-2xl p-7">
+          <div class="num-tag mb-4">06</div>
+          <h3 class="en font-bold text-xl mb-2">AI Consulting</h3>
+          <p class="text-sm mb-6" style="color:var(--text-2); line-height:1.7;">ที่ปรึกษานำ AI เข้าธุรกิจ ลดต้นทุน เพิ่มประสิทธิภาพ</p>
+          <div class="flex items-end justify-between">
+            <div class="price text-2xl" style="color:var(--text-1)">฿2,000/ชม.</div>
+            <div class="chip">นัดได้ทันที</div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
-  <section id="portfolio" class="py-24 px-6 bg-white/[0.02]">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <div class="badge inline-block text-xs px-3 py-1.5 rounded-full text-indigo-300 font-medium mb-4">ผลงาน</div>
-        <h2 class="text-4xl font-bold">งานที่ผ่านมา</h2>
-        <p class="text-gray-400 mt-4">ตัวอย่างงานที่พัฒนาด้วย AI — ทุกงานส่งตรงเวลา</p>
-      </div>
+  <!-- WORK -->
+  <section id="work" class="py-24 px-6" style="border-top: 1px solid var(--border)">
+    <div class="max-w-5xl mx-auto">
+      <div class="section-label mb-3">ผลงาน</div>
+      <h2 class="en font-bold text-4xl mb-14" style="letter-spacing:-0.02em;">Selected work</h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="service-card rounded-2xl overflow-hidden group">
-          <div class="h-40 bg-gradient-to-br from-indigo-900/50 to-purple-900/50 flex items-center justify-center">
-            <span class="text-5xl group-hover:scale-110 transition-transform">🚗</span>
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="card rounded-2xl overflow-hidden">
+          <div class="h-36 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #111, #1a1a1a)">🚗</div>
           <div class="p-5">
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="font-semibold">Vehicle Booking System</h3>
-              <span class="badge text-xs px-2 py-0.5 rounded-full text-indigo-300">React</span>
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <h3 class="en font-semibold text-base">Vehicle Booking System</h3>
+              <span class="chip flex-shrink-0">React</span>
             </div>
-            <p class="text-gray-400 text-sm">ระบบจองรถออนไลน์ Vite + React + Supabase + Cloudflare Pages</p>
+            <p class="text-xs" style="color:var(--text-2); line-height:1.6;">ระบบจองรถออนไลน์ Vite + Supabase + Cloudflare Pages</p>
           </div>
         </div>
 
-        <div class="service-card rounded-2xl overflow-hidden group">
-          <div class="h-40 bg-gradient-to-br from-purple-900/50 to-pink-900/50 flex items-center justify-center">
-            <span class="text-5xl group-hover:scale-110 transition-transform">🏪</span>
-          </div>
+        <div class="card rounded-2xl overflow-hidden">
+          <div class="h-36 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #111, #1a1a1a)">🏪</div>
           <div class="p-5">
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="font-semibold">ERP System (Orry Serenity)</h3>
-              <span class="badge text-xs px-2 py-0.5 rounded-full text-indigo-300">Full Stack</span>
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <h3 class="en font-semibold text-base">ERP System</h3>
+              <span class="chip flex-shrink-0">Full Stack</span>
             </div>
-            <p class="text-gray-400 text-sm">ระบบ ERP สำหรับธุรกิจ beauty/retail RBAC + Supabase + Vercel</p>
+            <p class="text-xs" style="color:var(--text-2); line-height:1.6;">ระบบ ERP beauty/retail RBAC + Supabase + Vercel</p>
           </div>
         </div>
 
-        <div class="service-card rounded-2xl overflow-hidden group">
-          <div class="h-40 bg-gradient-to-br from-cyan-900/50 to-blue-900/50 flex items-center justify-center">
-            <span class="text-5xl group-hover:scale-110 transition-transform">🤖</span>
-          </div>
+        <div class="card rounded-2xl overflow-hidden">
+          <div class="h-36 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #111, #1a1a1a)">🤖</div>
           <div class="p-5">
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="font-semibold">AI Orchestrator</h3>
-              <span class="badge text-xs px-2 py-0.5 rounded-full text-indigo-300">Node.js</span>
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <h3 class="en font-semibold text-base">AI Orchestrator</h3>
+              <span class="chip flex-shrink-0">Node.js</span>
             </div>
-            <p class="text-gray-400 text-sm">Multi-model AI system Groq + Gemini + Claude orchestration</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section id="process" class="py-24 px-6">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-16">
-        <div class="badge inline-block text-xs px-3 py-1.5 rounded-full text-indigo-300 font-medium mb-4">ขั้นตอน</div>
-        <h2 class="text-4xl font-bold">ทำงานอย่างไร?</h2>
-        <p class="text-gray-400 mt-4">โปร่งใส รวดเร็ว ตรงเวลา — ทุกขั้นตอนมีการอัปเดตให้ทราบ</p>
-      </div>
-
-      <div class="space-y-6">
-        <div class="flex gap-6 items-start">
-          <div class="timeline-dot w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
-          <div class="service-card flex-1 rounded-2xl p-5">
-            <h3 class="font-semibold text-lg">ปรึกษาฟรี (0–30 นาที)</h3>
-            <p class="text-gray-400 text-sm mt-2">คุยเรื่อง requirement, scope, และ timeline ผ่าน Line / โทร</p>
-          </div>
-        </div>
-        <div class="flex gap-6 items-start">
-          <div class="timeline-dot w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
-          <div class="service-card flex-1 rounded-2xl p-5">
-            <h3 class="font-semibold text-lg">ยืนยัน + เริ่มงาน</h3>
-            <p class="text-gray-400 text-sm mt-2">ส่ง quote → ยืนยัน → เริ่มงานทันที (ไม่ต้องรอนาน)</p>
-          </div>
-        </div>
-        <div class="flex gap-6 items-start">
-          <div class="timeline-dot w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
-          <div class="service-card flex-1 rounded-2xl p-5">
-            <h3 class="font-semibold text-lg">Update ระหว่างทำ</h3>
-            <p class="text-gray-400 text-sm mt-2">อัปเดต progress ให้ทราบทุก milestone ไม่หายหัว</p>
-          </div>
-        </div>
-        <div class="flex gap-6 items-start">
-          <div class="timeline-dot w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">4</div>
-          <div class="service-card flex-1 rounded-2xl p-5">
-            <h3 class="font-semibold text-lg">ส่งงาน + Revision ฟรี</h3>
-            <p class="text-gray-400 text-sm mt-2">ส่งงานตามกำหนด แก้ไขได้ฟรี 2 ครั้ง</p>
+            <p class="text-xs" style="color:var(--text-2); line-height:1.6;">Multi-model AI system Groq + Gemini + Claude</p>
           </div>
         </div>
       </div>
@@ -394,75 +306,128 @@
   </section>
 
   <!-- WHY AI -->
-  <section class="py-24 px-6 bg-white/[0.02]">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold">ทำไมต้อง <span class="gradient-text">AI-Powered?</span></h2>
-        <p class="text-gray-400 mt-4">ไม่ใช่แค่เร็วกว่า — แต่ดีกว่าด้วย</p>
+  <section class="py-24 px-6" style="border-top: 1px solid var(--border)">
+    <div class="max-w-5xl mx-auto">
+      <div class="section-label mb-3">ทำไมต้องเลือก</div>
+      <h2 class="en font-bold text-4xl mb-14" style="letter-spacing:-0.02em;">AI-assisted<br/>development</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <div class="accent text-4xl en font-extrabold mb-3">3×</div>
+          <h3 class="en font-semibold text-lg mb-2">เร็วกว่า</h3>
+          <p class="text-sm" style="color:var(--text-2); line-height:1.7;">AI ช่วยเขียน code, test, debug — ส่งงานเร็วกว่า dev ทั่วไปมาก ไม่ลดคุณภาพ</p>
+        </div>
+        <div>
+          <div class="accent text-4xl en font-extrabold mb-3">↓ bug</div>
+          <h3 class="en font-semibold text-lg mb-2">Error น้อยกว่า</h3>
+          <p class="text-sm" style="color:var(--text-2); line-height:1.7;">AI review code ทุก step ลด bug และ security issue ก่อนส่งงาน</p>
+        </div>
+        <div>
+          <div class="accent text-4xl en font-extrabold mb-3">฿↓</div>
+          <h3 class="en font-semibold text-lg mb-2">ราคาดีกว่า</h3>
+          <p class="text-sm" style="color:var(--text-2); line-height:1.7;">ต้นทุนต่ำกว่า ส่งผ่านเป็นราคาที่คุ้มกว่า ได้งาน quality สูงในราคาเข้าถึงได้</p>
+        </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center space-y-4">
-          <div class="text-5xl">⚡</div>
-          <h3 class="text-xl font-semibold">เร็วกว่า 3 เท่า</h3>
-          <p class="text-gray-400 text-sm">AI ช่วยเขียน code, test, และ debug ทำให้ส่งงานได้เร็วกว่า dev ทั่วไปมาก</p>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="py-24 px-6" style="border-top: 1px solid var(--border)">
+    <div class="max-w-5xl mx-auto">
+      <div class="section-label mb-3">ขั้นตอน</div>
+      <h2 class="en font-bold text-4xl mb-14" style="letter-spacing:-0.02em;">How it works</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="card rounded-2xl p-6">
+          <div class="num-tag mb-4">01</div>
+          <h3 class="en font-semibold mb-2">ปรึกษาฟรี</h3>
+          <p class="text-sm" style="color:var(--text-2); line-height:1.6;">คุย requirement, scope, timeline ผ่าน Line — ไม่เกิน 30 นาที</p>
         </div>
-        <div class="text-center space-y-4">
-          <div class="text-5xl">🎯</div>
-          <h3 class="text-xl font-semibold">ลด Error</h3>
-          <p class="text-gray-400 text-sm">AI review code ทุก step ลด bug และ security issue ก่อนส่งงาน</p>
+        <div class="card rounded-2xl p-6">
+          <div class="num-tag mb-4">02</div>
+          <h3 class="en font-semibold mb-2">ยืนยัน + เริ่ม</h3>
+          <p class="text-sm" style="color:var(--text-2); line-height:1.6;">ส่ง quote ยืนยัน → เริ่มงานทันที ไม่ต้องรอนาน</p>
         </div>
-        <div class="text-center space-y-4">
-          <div class="text-5xl">💰</div>
-          <h3 class="text-xl font-semibold">ราคาดีกว่า</h3>
-          <p class="text-gray-400 text-sm">ต้นทุนต่ำกว่า ส่งต่อเป็นราคาที่ดีกว่าให้ลูกค้า ได้งานคุณภาพสูงในราคาเข้าถึงได้</p>
+        <div class="card rounded-2xl p-6">
+          <div class="num-tag mb-4">03</div>
+          <h3 class="en font-semibold mb-2">Update ระหว่างทำ</h3>
+          <p class="text-sm" style="color:var(--text-2); line-height:1.6;">อัปเดต progress ทุก milestone ไม่หายหัว</p>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <div class="num-tag mb-4">04</div>
+          <h3 class="en font-semibold mb-2">ส่งงาน</h3>
+          <p class="text-sm" style="color:var(--text-2); line-height:1.6;">ส่งตรงเวลา แก้ไขฟรี 2 ครั้ง จนพอใจ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-24 px-6" style="border-top: 1px solid var(--border)">
+    <div class="max-w-5xl mx-auto">
+      <div class="section-label mb-3">FAQ</div>
+      <h2 class="en font-bold text-4xl mb-14" style="letter-spacing:-0.02em;">คำถามที่พบบ่อย</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="card rounded-2xl p-6">
+          <h3 class="font-semibold mb-2">ใช้ AI ช่วยทำ คุณภาพดีไหม?</h3>
+          <p class="text-sm" style="color:var(--text-2); line-height:1.7;">AI เป็น tool ที่ช่วยเพิ่มความเร็ว ไม่ใช่แทนความรู้ — ทุกงานผ่านการ review และ test โดย developer จริงก่อนส่ง</p>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <h3 class="font-semibold mb-2">จ่ายเงินก่อนหรือหลัง?</h3>
+          <p class="text-sm" style="color:var(--text-2); line-height:1.7;">งานเล็ก (ราคาต่ำกว่า ฿5,000): จ่ายหลังรับงาน งานใหญ่: แบ่ง 50% ก่อน + 50% หลังส่ง</p>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <h3 class="font-semibold mb-2">ถ้างานไม่ผ่าน revision ล่ะ?</h3>
+          <p class="text-sm" style="color:var(--text-2); line-height:1.7;">แก้ไขฟรี 2 ครั้ง ถ้ายังไม่ผ่านจะหารือเพิ่มเติม — ไม่ทิ้งงานกลางทาง</p>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <h3 class="font-semibold mb-2">รับงานต่างจังหวัดได้ไหม?</h3>
+          <p class="text-sm" style="color:var(--text-2); line-height:1.7;">รับได้ทั่วประเทศ ทุกอย่างทำออนไลน์ผ่าน Line / Email ได้เลย</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="py-24 px-6">
-    <div class="max-w-2xl mx-auto text-center">
-      <div class="badge inline-block text-xs px-3 py-1.5 rounded-full text-indigo-300 font-medium mb-6">ติดต่อ</div>
-      <h2 class="text-4xl font-bold mb-4">พร้อมเริ่มงาน<span class="gradient-text">วันนี้</span>?</h2>
-      <p class="text-gray-400 mb-10">ปรึกษาฟรี ไม่มีค่าใช้จ่าย ไม่มีเงื่อนไข</p>
+  <section id="contact" class="py-24 px-6" style="border-top: 1px solid var(--border)">
+    <div class="max-w-5xl mx-auto">
+      <div class="section-label mb-3">ติดต่อ</div>
+      <h2 class="en font-bold mb-4" style="font-size: clamp(32px, 5vw, 56px); letter-spacing:-0.02em; line-height:1.1;">
+        Ready to<br/><span class="accent">build something?</span>
+      </h2>
+      <p class="mb-12 max-w-sm" style="color:var(--text-2); font-size:16px; line-height:1.7;">ปรึกษาฟรี ไม่มีค่าใช้จ่าย ไม่มีเงื่อนไข — ตอบภายใน 1 ชั่วโมง</p>
 
-      <div class="service-card rounded-3xl p-8 space-y-6">
-        <!-- Line CTA -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl">
         <a href="https://line.me/ti/p/~eak_nu" target="_blank"
-           class="flex items-center gap-4 bg-green-500/20 hover:bg-green-500/30 border border-green-500/30 rounded-2xl p-5 transition-all group">
-          <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">💬</div>
-          <div class="text-left flex-1">
-            <div class="font-semibold text-green-300">Line: eak_nu</div>
-            <div class="text-sm text-gray-400 mt-0.5">ติดต่อเร็วที่สุด — ตอบภายใน 1 ชม.</div>
+           class="card card-accent rounded-2xl p-6 flex items-center gap-4 group">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0" style="background:rgba(0,200,80,0.15)">💬</div>
+          <div>
+            <div class="en font-semibold text-base" style="color: #4ade80">Line: eak_nu</div>
+            <div class="text-xs mt-0.5" style="color:var(--text-2)">ติดต่อเร็วที่สุด</div>
           </div>
-          <div class="text-gray-500 group-hover:text-white transition-colors">→</div>
         </a>
 
-        <!-- Email -->
         <a href="mailto:brtstore.4340@gmail.com"
-           class="flex items-center gap-4 bg-white/5 hover:bg-white/8 border border-white/10 rounded-2xl p-5 transition-all group">
-          <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">📧</div>
-          <div class="text-left flex-1">
-            <div class="font-semibold">brtstore.4340@gmail.com</div>
-            <div class="text-sm text-gray-400 mt-0.5">สำหรับโปรเจกต์ใหญ่ / รายละเอียดงาน</div>
+           class="card card-accent rounded-2xl p-6 flex items-center gap-4 group">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0" style="background:rgba(232,255,71,0.1)">✉️</div>
+          <div>
+            <div class="en font-semibold text-sm accent">brtstore.4340@gmail.com</div>
+            <div class="text-xs mt-0.5" style="color:var(--text-2)">สำหรับโปรเจกต์ใหญ่</div>
           </div>
-          <div class="text-gray-500 group-hover:text-white transition-colors">→</div>
         </a>
-
-        <div class="border-t border-white/5 pt-6">
-          <p class="text-gray-500 text-sm">⏱ ตอบเร็ว · 🔒 NDA ได้ · 💳 โอนจ่าย / PromptPay</p>
-        </div>
       </div>
+
+      <p class="mt-8 text-sm" style="color:var(--text-3)">⏱ ตอบเร็ว &nbsp;·&nbsp; 🔒 NDA ได้ &nbsp;·&nbsp; 💳 โอน / PromptPay</p>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="border-t border-white/5 py-8 px-6">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-      <span class="gradient-text font-bold">Ekkarat.dev</span>
-      <p class="text-gray-500 text-sm">AI-Powered Developer · Thailand 🇹🇭</p>
-      <p class="text-gray-600 text-xs">© 2026 · Built with Claude Code ⚡</p>
+  <footer class="px-6 py-10" style="border-top: 1px solid var(--border)">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <span class="en font-bold text-base">Ekkarat<span class="accent">.</span></span>
+      <p class="text-sm" style="color:var(--text-3)">AI-Powered Developer · Thailand</p>
+      <p class="text-xs" style="color:var(--text-3)">Built with Claude Code</p>
     </div>
   </footer>
 
