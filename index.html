@@ -3,17 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ekkarat — AI-Powered Developer</title>
-  <meta name="description" content="Full-Stack Developer ที่ใช้ AI ช่วยพัฒนา ส่งงานเร็วกว่า 3 เท่า Landing Page ฿2,500 ส่งใน 24–48 ชม." />
+  <title>Ekkarat — AI-Powered Developer | Landing Page ฿2,500 ส่งงานใน 24–48 ชม.</title>
+  <meta name="description" content="Full-Stack Developer ที่ใช้ AI ช่วยพัฒนา ส่งงานเร็วกว่า 3 เท่า Landing Page ฿2,500 ส่งใน 24–48 ชม. Chatbot, Web App, Automation — ปรึกษาฟรี" />
+  <meta name="keywords" content="รับทำเว็บไซต์, landing page, chatbot, AI automation, developer, freelance" />
+  <meta property="og:title" content="Ekkarat — AI-Powered Developer" />
+  <meta property="og:description" content="Full-Stack Developer ที่ใช้ AI ช่วยพัฒนา ส่งงานเร็วกว่า 3 เท่า" />
+  <meta property="og:type" content="website" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
       --bg: #080808;
       --surface-1: #111111;
       --surface-2: #181818;
+      --surface-3: #1e1e1e;
       --border: rgba(255,255,255,0.07);
       --border-hover: rgba(255,255,255,0.15);
       --accent: #E8FF47;
@@ -22,54 +27,95 @@
       --text-2: #808080;
       --text-3: #484848;
     }
-    * { font-family: 'Sarabun', 'DM Sans', sans-serif; box-sizing: border-box; }
-    h1, h2, h3, h4, .en { font-family: 'DM Sans', 'Sarabun', sans-serif; }
-    body { background: var(--bg); color: var(--text-1); margin: 0; }
+    * { font-family: 'Sarabun', sans-serif; box-sizing: border-box; }
+    h1, h2, h3, h4, .en { font-family: 'Space Grotesk', 'Sarabun', sans-serif; }
+    body { background: var(--bg); color: var(--text-1); margin: 0; overflow-x: hidden; }
     html { scroll-behavior: smooth; }
 
+    /* Background noise texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 25% 25%, rgba(232,255,71,0.02) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(232,255,71,0.015) 0%, transparent 50%),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.01) 2px, rgba(255,255,255,0.01) 4px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
     /* Nav */
-    nav { background: rgba(8,8,8,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+    nav {
+      background: rgba(8,8,8,0.88);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
 
     /* Accent */
     .accent { color: var(--accent); }
     .accent-bg { background: var(--accent); color: #080808; }
-    .accent-border { border-color: var(--accent); }
 
     /* Cards */
     .card {
       background: var(--surface-1);
       border: 1px solid var(--border);
-      transition: border-color 0.2s ease, transform 0.2s ease;
+      border-radius: 1rem;
+      transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
-    .card-accent:hover { border-color: var(--accent); }
+    .card:hover { border-color: var(--border-hover); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+    .card-accent:hover { border-color: var(--accent); box-shadow: 0 8px 30px rgba(232,255,71,0.08); }
 
-    /* CTA button */
+    /* CTA button — pill shape with arrow */
     .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
       background: var(--accent);
       color: #080808;
+      font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      transition: opacity 0.15s ease, transform 0.15s ease;
+      padding: 0.85em 1.8em;
+      border-radius: 99px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 20px rgba(232,255,71,0.15);
     }
-    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-2px); box-shadow: 0 0 30px rgba(232,255,71,0.25); }
+    .btn-primary .arrow { transition: transform 0.2s ease; }
+    .btn-primary:hover .arrow { transform: translateX(4px); }
+
     .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
       border: 1px solid var(--border);
-      transition: border-color 0.15s ease;
+      color: var(--text-1);
+      padding: 0.85em 1.8em;
+      border-radius: 99px;
+      text-decoration: none;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
     }
-    .btn-ghost:hover { border-color: var(--border-hover); }
+    .btn-ghost:hover { border-color: var(--border-hover); background: var(--surface-2); }
 
     /* Number tags */
     .num-tag {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 11px;
       color: var(--text-3);
       font-weight: 500;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
     }
 
     /* Price */
     .price {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
     }
 
@@ -77,23 +123,28 @@
     hr { border: none; border-top: 1px solid var(--border); }
 
     /* Dot live */
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
     .live-dot { animation: pulse 2s ease-in-out infinite; }
 
     /* Fade in on load */
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-up { animation: fadeUp 0.6s ease forwards; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.7s ease forwards; }
     .delay-1 { animation-delay: 0.1s; opacity: 0; }
     .delay-2 { animation-delay: 0.2s; opacity: 0; }
     .delay-3 { animation-delay: 0.35s; opacity: 0; }
     .delay-4 { animation-delay: 0.5s; opacity: 0; }
+    .delay-5 { animation-delay: 0.65s; opacity: 0; }
+
+    /* Scroll-triggered reveal */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* Section label */
     .section-label {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 11px;
       font-weight: 500;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--text-3);
     }
@@ -104,17 +155,103 @@
       border: 1px solid var(--border);
       font-size: 12px;
       color: var(--text-2);
-      padding: 4px 10px;
+      padding: 4px 12px;
       border-radius: 99px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
     }
     .chip-accent {
       background: var(--accent-dim);
       border: 1px solid rgba(232,255,71,0.25);
       color: var(--accent);
     }
+
+    /* Stat counter */
+    .stat-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    /* Glow line under section headings */
+    .glow-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      margin-top: 0.5rem;
+      opacity: 0.4;
+    }
+
+    /* Project card mockup */
+    .project-mockup {
+      position: relative;
+      overflow: hidden;
+    }
+    .project-mockup::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, var(--surface-1) 100%);
+      pointer-events: none;
+    }
+    .project-mockup:hover::after { opacity: 0; }
+
+    /* Testimonial card */
+    .testimonial {
+      position: relative;
+    }
+    .testimonial::before {
+      content: '"';
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      font-size: 48px;
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--accent);
+      opacity: 0.15;
+      line-height: 1;
+    }
+
+    /* Accordion FAQ */
+    .faq-item { cursor: pointer; user-select: none; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-item.open .faq-answer { max-height: 200px; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-chevron { transition: transform 0.2s ease; }
+
+    /* Connecting line for process */
+    .process-line {
+      position: relative;
+    }
+    .process-line::after {
+      content: '';
+      position: absolute;
+      top: 2.5rem;
+      right: -0.5rem;
+      width: 1rem;
+      height: 1px;
+      background: var(--border);
+    }
+    @media (max-width: 768px) {
+      .process-line::after { display: none; }
+    }
+
+    /* Scroll progress bar */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      z-index: 100;
+      transform-origin: left;
+      transition: transform 0.1s ease-out;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
 
   <!-- NAV -->
   <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4">
@@ -126,13 +263,13 @@
         <a href="#process" class="hover:text-white transition-colors">ขั้นตอน</a>
         <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
       </div>
-      <a href="#contact" class="btn-primary en px-5 py-2.5 rounded-xl text-sm font-bold">ปรึกษาฟรี</a>
+      <a href="#contact" class="btn-primary">ปรึกษาฟรี <span class="arrow">→</span></a>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section class="pt-36 pb-28 px-6">
-    <div class="max-w-5xl mx-auto">
+  <section class="pt-36 pb-28 px-6 relative">
+    <div class="max-w-5xl mx-auto relative z-10">
 
       <!-- Status bar -->
       <div class="fade-up delay-1 flex items-center gap-3 mb-10">
@@ -141,7 +278,7 @@
       </div>
 
       <!-- Headline -->
-      <h1 class="fade-up delay-2 en font-extrabold leading-none mb-6" style="font-size: clamp(42px, 7vw, 88px); letter-spacing:-0.03em;">
+      <h1 class="fade-up delay-2 en font-extrabold leading-[1.05] mb-6" style="font-size: clamp(44px, 7.5vw, 92px); letter-spacing:-0.035em;">
         Build fast.<br/>
         <span class="accent">Ship faster.</span>
       </h1>
@@ -152,39 +289,55 @@
       </p>
 
       <div class="fade-up delay-4 flex flex-wrap gap-3">
-        <a href="#contact" class="btn-primary px-7 py-3.5 rounded-xl text-sm">นัดปรึกษาฟรี →</a>
-        <a href="#services" class="btn-ghost px-7 py-3.5 rounded-xl text-sm" style="color:var(--text-1)">ดูบริการ</a>
+        <a href="#contact" class="btn-primary">นัดปรึกษาฟรี <span class="arrow">→</span></a>
+        <a href="#services" class="btn-ghost">ดูบริการ</a>
       </div>
 
       <!-- Stats row -->
-      <div class="fade-up delay-4 flex flex-wrap gap-10 mt-16 pt-10" style="border-top: 1px solid var(--border)">
+      <div class="fade-up delay-5 flex flex-wrap gap-10 mt-16 pt-10" style="border-top: 1px solid var(--border)">
         <div>
-          <div class="en font-bold text-3xl accent">24–48h</div>
-          <div class="text-sm mt-1" style="color:var(--text-2)">Landing Page delivery</div>
+          <div class="stat-val text-3xl accent">24–48h</div>
+          <div class="text-sm mt-1.5" style="color:var(--text-2)">Landing Page delivery</div>
         </div>
         <div>
-          <div class="en font-bold text-3xl" style="color:var(--text-1)">฿2,500</div>
-          <div class="text-sm mt-1" style="color:var(--text-2)">ราคาเริ่มต้น</div>
+          <div class="stat-val text-3xl" style="color:var(--text-1)">฿2,500</div>
+          <div class="text-sm mt-1.5" style="color:var(--text-2)">ราคาเริ่มต้น</div>
         </div>
         <div>
-          <div class="en font-bold text-3xl" style="color:var(--text-1)">3×</div>
-          <div class="text-sm mt-1" style="color:var(--text-2)">เร็วกว่า dev ทั่วไป</div>
+          <div class="stat-val text-3xl" style="color:var(--text-1)">3×</div>
+          <div class="text-sm mt-1.5" style="color:var(--text-2)">เร็วกว่า dev ทั่วไป</div>
         </div>
         <div>
-          <div class="en font-bold text-3xl" style="color:var(--text-1)">Free</div>
-          <div class="text-sm mt-1" style="color:var(--text-2)">ปรึกษาครั้งแรก</div>
+          <div class="stat-val text-3xl" style="color:var(--text-1)">Free</div>
+          <div class="text-sm mt-1.5" style="color:var(--text-2)">ปรึกษาครั้งแรก</div>
+        </div>
+      </div>
+
+      <!-- Trust badges -->
+      <div class="fade-up delay-5 mt-14 pt-8" style="border-top: 1px solid var(--border)">
+        <p class="section-label mb-4">Technology Stack</p>
+        <div class="flex flex-wrap gap-3">
+          <span class="chip">React</span>
+          <span class="chip">Next.js</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">Supabase</span>
+          <span class="chip">Vercel</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">Python</span>
+          <span class="chip chip-accent">AI-Powered</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- SERVICES -->
-  <section id="services" class="py-24 px-6">
-    <div class="max-w-5xl mx-auto">
+  <section id="services" class="py-24 px-6 relative z-10">
+    <div class="max-w-5xl mx-auto reveal">
       <div class="flex items-end justify-between mb-14 flex-wrap gap-4">
         <div>
           <div class="section-label mb-3">บริการ</div>
-          <h2 class="en font-bold text-4xl" style="letter-spacing:-0.02em;">What I build</h2>
+          <h2 class="en font-bold text-4xl" style="letter-spacing:-0.025em;">What I build</h2>
+          <div class="glow-line" style="width:60px;"></div>
         </div>
         <p class="text-sm max-w-xs" style="color:var(--text-2)">ทุกงานใช้ AI ช่วยพัฒนา — คุณภาพสูง ส่งเร็ว ราคาเป็นธรรม</p>
       </div>
@@ -263,14 +416,30 @@
   </section>
 
   <!-- WORK -->
-  <section id="work" class="py-24 px-6" style="border-top: 1px solid var(--border)">
-    <div class="max-w-5xl mx-auto">
+  <section id="work" class="py-24 px-6 relative z-10" style="border-top: 1px solid var(--border)">
+    <div class="max-w-5xl mx-auto reveal">
       <div class="section-label mb-3">ผลงาน</div>
-      <h2 class="en font-bold text-4xl mb-14" style="letter-spacing:-0.02em;">Selected work</h2>
+      <h2 class="en font-bold text-4xl mb-2" style="letter-spacing:-0.025em;">Selected work</h2>
+      <div class="glow-line mb-14" style="width:60px;"></div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="card rounded-2xl overflow-hidden">
-          <div class="h-36 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #111, #1a1a1a)">🚗</div>
+
+        <!-- Project 1: Vehicle Booking -->
+        <div class="card rounded-2xl overflow-hidden group">
+          <div class="project-mockup h-44" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #334155 100%);">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center">
+                <div class="text-4xl mb-2">🚗</div>
+                <div class="en text-xs font-medium" style="color:rgba(255,255,255,0.6)">Vehicle Booking</div>
+              </div>
+            </div>
+            <!-- Fake browser chrome -->
+            <div class="absolute top-0 left-0 right-0 h-6 flex items-center gap-1.5 px-3" style="background:rgba(0,0,0,0.3)">
+              <div class="w-2 h-2 rounded-full" style="background:#ef4444"></div>
+              <div class="w-2 h-2 rounded-full" style="background:#f59e0b"></div>
+              <div class="w-2 h-2 rounded-full" style="background:#22c55e"></div>
+            </div>
+          </div>
           <div class="p-5">
             <div class="flex items-start justify-between gap-2 mb-2">
               <h3 class="en font-semibold text-base">Vehicle Booking System</h3>
@@ -280,8 +449,21 @@
           </div>
         </div>
 
-        <div class="card rounded-2xl overflow-hidden">
-          <div class="h-36 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #111, #1a1a1a)">🏪</div>
+        <!-- Project 2: ERP System -->
+        <div class="card rounded-2xl overflow-hidden group">
+          <div class="project-mockup h-44" style="background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 40%, #4c1d95 100%);">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center">
+                <div class="text-4xl mb-2">🏪</div>
+                <div class="en text-xs font-medium" style="color:rgba(255,255,255,0.6)">ERP System</div>
+              </div>
+            </div>
+            <div class="absolute top-0 left-0 right-0 h-6 flex items-center gap-1.5 px-3" style="background:rgba(0,0,0,0.3)">
+              <div class="w-2 h-2 rounded-full" style="background:#ef4444"></div>
+              <div class="w-2 h-2 rounded-full" style="background:#f59e0b"></div>
+              <div class="w-2 h-2 rounded-full" style="background:#22c55e"></div>
+            </div>
+          </div>
           <div class="p-5">
             <div class="flex items-start justify-between gap-2 mb-2">
               <h3 class="en font-semibold text-base">ERP System</h3>
@@ -291,8 +473,21 @@
           </div>
         </div>
 
-        <div class="card rounded-2xl overflow-hidden">
-          <div class="h-36 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #111, #1a1a1a)">🤖</div>
+        <!-- Project 3: AI Orchestrator -->
+        <div class="card rounded-2xl overflow-hidden group">
+          <div class="project-mockup h-44" style="background: linear-gradient(135deg, #052e16 0%, #14532d 40%, #166534 100%);">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center">
+                <div class="text-4xl mb-2">🤖</div>
+                <div class="en text-xs font-medium" style="color:rgba(255,255,255,0.6)">AI Orchestrator</div>
+              </div>
+            </div>
+            <div class="absolute top-0 left-0 right-0 h-6 flex items-center gap-1.5 px-3" style="background:rgba(0,0,0,0.3)">
+              <div class="w-2 h-2 rounded-full" style="background:#ef4444"></div>
+              <div class="w-2 h-2 rounded-full" style="background:#f59e0b"></div>
+              <div class="w-2 h-2 rounded-full" style="background:#22c55e"></div>
+            </div>
+          </div>
           <div class="p-5">
             <div class="flex items-start justify-between gap-2 mb-2">
               <h3 class="en font-semibold text-base">AI Orchestrator</h3>
@@ -305,25 +500,39 @@
     </div>
   </section>
 
-  <!-- WHY AI -->
-  <section class="py-24 px-6" style="border-top: 1px solid var(--border)">
-    <div class="max-w-5xl mx-auto">
-      <div class="section-label mb-3">ทำไมต้องเลือก</div>
-      <h2 class="en font-bold text-4xl mb-14" style="letter-spacing:-0.02em;">AI-assisted<br/>development</h2>
+  <!-- WHY AI / BENEFITS -->
+  <section class="py-24 px-6 relative z-10" style="border-top: 1px solid var(--border)">
+    <div class="max-w-5xl mx-auto reveal">
+      <div class="flex items-end justify-between mb-14 flex-wrap gap-4">
+        <div>
+          <div class="section-label mb-3">ทำไมต้องเลือก</div>
+          <h2 class="en font-bold text-4xl" style="letter-spacing:-0.025em;">AI-assisted<br/>development</h2>
+          <div class="glow-line" style="width:60px;"></div>
+        </div>
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div>
-          <div class="accent text-4xl en font-extrabold mb-3">3×</div>
+        <div class="card rounded-2xl p-7">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:var(--accent-dim)">
+            <span class="text-2xl">⚡</span>
+          </div>
+          <div class="accent en font-extrabold text-4xl mb-3">3×</div>
           <h3 class="en font-semibold text-lg mb-2">เร็วกว่า</h3>
           <p class="text-sm" style="color:var(--text-2); line-height:1.7;">AI ช่วยเขียน code, test, debug — ส่งงานเร็วกว่า dev ทั่วไปมาก ไม่ลดคุณภาพ</p>
         </div>
-        <div>
-          <div class="accent text-4xl en font-extrabold mb-3">↓ bug</div>
+        <div class="card rounded-2xl p-7">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(74,222,128,0.1)">
+            <span class="text-2xl">🛡️</span>
+          </div>
+          <div class="en font-extrabold text-4xl mb-3" style="color:#4ade80">↓ bug</div>
           <h3 class="en font-semibold text-lg mb-2">Error น้อยกว่า</h3>
           <p class="text-sm" style="color:var(--text-2); line-height:1.7;">AI review code ทุก step ลด bug และ security issue ก่อนส่งงาน</p>
         </div>
-        <div>
-          <div class="accent text-4xl en font-extrabold mb-3">฿↓</div>
+        <div class="card rounded-2xl p-7">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(232,255,71,0.1)">
+            <span class="text-2xl">💰</span>
+          </div>
+          <div class="en font-extrabold text-4xl mb-3" style="color:var(--accent)">฿↓</div>
           <h3 class="en font-semibold text-lg mb-2">ราคาดีกว่า</h3>
           <p class="text-sm" style="color:var(--text-2); line-height:1.7;">ต้นทุนต่ำกว่า ส่งผ่านเป็นราคาที่คุ้มกว่า ได้งาน quality สูงในราคาเข้าถึงได้</p>
         </div>
@@ -331,24 +540,75 @@
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section class="py-24 px-6 relative z-10" style="border-top: 1px solid var(--border)">
+    <div class="max-w-5xl mx-auto reveal">
+      <div class="section-label mb-3">รีวิวจากลูกค้า</div>
+      <h2 class="en font-bold text-4xl mb-2" style="letter-spacing:-0.025em;">What they say</h2>
+      <div class="glow-line mb-14" style="width:60px;"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="card testimonial rounded-2xl p-7">
+          <p class="text-sm mb-6" style="color:var(--text-2); line-height:1.7; padding-left:12px;">
+            "ได้งานเร็วกว่าที่คิดมาก คุณภาพดี ใช้งานจริงได้เลย แก้ไขให้จนพอใจ แนะนำเลยครับ"
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold" style="background:var(--accent-dim); color:var(--accent)">S</div>
+            <div>
+              <div class="en font-semibold text-sm">Shop Owner</div>
+              <div class="text-xs" style="color:var(--text-3)">Landing Page</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card testimonial rounded-2xl p-7">
+          <p class="text-sm mb-6" style="color:var(--text-2); line-height:1.7; padding-left:12px;">
+            "Chatbot ช่วยตอบลูกค้าได้ตลอด 24 ชม. ลดงานทีม support ไปเยอะ คุ้มค่ามาก"
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold" style="background:rgba(74,222,128,0.1); color:#4ade80">M</div>
+            <div>
+              <div class="en font-semibold text-sm">Marketing Manager</div>
+              <div class="text-xs" style="color:var(--text-3)">Line OA Chatbot</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card testimonial rounded-2xl p-7">
+          <p class="text-sm mb-6" style="color:var(--text-2); line-height:1.7; padding-left:12px;">
+            "ระบบ ERP ที่ทำมาใช้งานง่าย ทีมใช้ได้เลยไม่ต้อง train เยอะ ดีไซน์ก็สวย"
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold" style="background:rgba(168,85,247,0.1); color:#a855f7">K</div>
+            <div>
+              <div class="en font-semibold text-sm">Business Owner</div>
+              <div class="text-xs" style="color:var(--text-3)">ERP System</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROCESS -->
-  <section id="process" class="py-24 px-6" style="border-top: 1px solid var(--border)">
-    <div class="max-w-5xl mx-auto">
+  <section id="process" class="py-24 px-6 relative z-10" style="border-top: 1px solid var(--border)">
+    <div class="max-w-5xl mx-auto reveal">
       <div class="section-label mb-3">ขั้นตอน</div>
-      <h2 class="en font-bold text-4xl mb-14" style="letter-spacing:-0.02em;">How it works</h2>
+      <h2 class="en font-bold text-4xl mb-2" style="letter-spacing:-0.025em;">How it works</h2>
+      <div class="glow-line mb-14" style="width:60px;"></div>
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div class="card rounded-2xl p-6">
+        <div class="card rounded-2xl p-6 process-line">
           <div class="num-tag mb-4">01</div>
           <h3 class="en font-semibold mb-2">ปรึกษาฟรี</h3>
           <p class="text-sm" style="color:var(--text-2); line-height:1.6;">คุย requirement, scope, timeline ผ่าน Line — ไม่เกิน 30 นาที</p>
         </div>
-        <div class="card rounded-2xl p-6">
+        <div class="card rounded-2xl p-6 process-line">
           <div class="num-tag mb-4">02</div>
           <h3 class="en font-semibold mb-2">ยืนยัน + เริ่ม</h3>
           <p class="text-sm" style="color:var(--text-2); line-height:1.6;">ส่ง quote ยืนยัน → เริ่มงานทันที ไม่ต้องรอนาน</p>
         </div>
-        <div class="card rounded-2xl p-6">
+        <div class="card rounded-2xl p-6 process-line">
           <div class="num-tag mb-4">03</div>
           <h3 class="en font-semibold mb-2">Update ระหว่างทำ</h3>
           <p class="text-sm" style="color:var(--text-2); line-height:1.6;">อัปเดต progress ทุก milestone ไม่หายหัว</p>
@@ -363,42 +623,85 @@
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="py-24 px-6" style="border-top: 1px solid var(--border)">
-    <div class="max-w-5xl mx-auto">
+  <section id="faq" class="py-24 px-6 relative z-10" style="border-top: 1px solid var(--border)">
+    <div class="max-w-5xl mx-auto reveal">
       <div class="section-label mb-3">FAQ</div>
-      <h2 class="en font-bold text-4xl mb-14" style="letter-spacing:-0.02em;">คำถามที่พบบ่อย</h2>
+      <h2 class="en font-bold text-4xl mb-2" style="letter-spacing:-0.025em;">คำถามที่พบบ่อย</h2>
+      <div class="glow-line mb-14" style="width:60px;"></div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="card rounded-2xl p-6">
-          <h3 class="font-semibold mb-2">ใช้ AI ช่วยทำ คุณภาพดีไหม?</h3>
-          <p class="text-sm" style="color:var(--text-2); line-height:1.7;">AI เป็น tool ที่ช่วยเพิ่มความเร็ว ไม่ใช่แทนความรู้ — ทุกงานผ่านการ review และ test โดย developer จริงก่อนส่ง</p>
+        <div class="card rounded-2xl p-6 faq-item" onclick="this.classList.toggle('open')">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="font-semibold">ใช้ AI ช่วยทำ คุณภาพดีไหม?</h3>
+            <span class="faq-chevron en" style="color:var(--text-3)">▾</span>
+          </div>
+          <div class="faq-answer pt-3">
+            <p class="text-sm" style="color:var(--text-2); line-height:1.7;">AI เป็น tool ที่ช่วยเพิ่มความเร็ว ไม่ใช่แทนความรู้ — ทุกงานผ่านการ review และ test โดย developer จริงก่อนส่ง</p>
+          </div>
         </div>
-        <div class="card rounded-2xl p-6">
-          <h3 class="font-semibold mb-2">จ่ายเงินก่อนหรือหลัง?</h3>
-          <p class="text-sm" style="color:var(--text-2); line-height:1.7;">งานเล็ก (ราคาต่ำกว่า ฿5,000): จ่ายหลังรับงาน งานใหญ่: แบ่ง 50% ก่อน + 50% หลังส่ง</p>
+        <div class="card rounded-2xl p-6 faq-item" onclick="this.classList.toggle('open')">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="font-semibold">จ่ายเงินก่อนหรือหลัง?</h3>
+            <span class="faq-chevron en" style="color:var(--text-3)">▾</span>
+          </div>
+          <div class="faq-answer pt-3">
+            <p class="text-sm" style="color:var(--text-2); line-height:1.7;">งานเล็ก (ราคาต่ำกว่า ฿5,000): จ่ายหลังรับงาน งานใหญ่: แบ่ง 50% ก่อน + 50% หลังส่ง</p>
+          </div>
         </div>
-        <div class="card rounded-2xl p-6">
-          <h3 class="font-semibold mb-2">ถ้างานไม่ผ่าน revision ล่ะ?</h3>
-          <p class="text-sm" style="color:var(--text-2); line-height:1.7;">แก้ไขฟรี 2 ครั้ง ถ้ายังไม่ผ่านจะหารือเพิ่มเติม — ไม่ทิ้งงานกลางทาง</p>
+        <div class="card rounded-2xl p-6 faq-item" onclick="this.classList.toggle('open')">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="font-semibold">ถ้างานไม่ผ่าน revision ล่ะ?</h3>
+            <span class="faq-chevron en" style="color:var(--text-3)">▾</span>
+          </div>
+          <div class="faq-answer pt-3">
+            <p class="text-sm" style="color:var(--text-2); line-height:1.7;">แก้ไขฟรี 2 ครั้ง ถ้ายังไม่ผ่านจะหารือเพิ่มเติม — ไม่ทิ้งงานกลางทาง</p>
+          </div>
         </div>
-        <div class="card rounded-2xl p-6">
-          <h3 class="font-semibold mb-2">รับงานต่างจังหวัดได้ไหม?</h3>
-          <p class="text-sm" style="color:var(--text-2); line-height:1.7;">รับได้ทั่วประเทศ ทุกอย่างทำออนไลน์ผ่าน Line / Email ได้เลย</p>
+        <div class="card rounded-2xl p-6 faq-item" onclick="this.classList.toggle('open')">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="font-semibold">รับงานต่างจังหวัดได้ไหม?</h3>
+            <span class="faq-chevron en" style="color:var(--text-3)">▾</span>
+          </div>
+          <div class="faq-answer pt-3">
+            <p class="text-sm" style="color:var(--text-2); line-height:1.7;">รับได้ทั่วประเทศ ทุกอย่างทำออนไลน์ผ่าน Line / Email ได้เลย</p>
+          </div>
+        </div>
+        <div class="card rounded-2xl p-6 faq-item" onclick="this.classList.toggle('open')">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="font-semibold">แก้ไขได้กี่ครั้ง?</h3>
+            <span class="faq-chevron en" style="color:var(--text-3)">▾</span>
+          </div>
+          <div class="faq-answer pt-3">
+            <p class="text-sm" style="color:var(--text-2); line-height:1.7;">แก้ไขฟรี 2 ครั้งใน scope ที่ตกลง ถ้าต้องการเพิ่ม scope จะแจ้งราคาก่อนทำทุกครั้ง</p>
+          </div>
+        </div>
+        <div class="card rounded-2xl p-6 faq-item" onclick="this.classList.toggle('open')">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="font-semibold">มี support หลังส่งงานไหม?</h3>
+            <span class="faq-chevron en" style="color:var(--text-3)">▾</span>
+          </div>
+          <div class="faq-answer pt-3">
+            <p class="text-sm" style="color:var(--text-2); line-height:1.7;">มีครับ — หลังส่งงานมีช่วง warranty 7 วัน ถ้ามี bug จากงานเดิม แก้ไขให้ฟรี</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="py-24 px-6" style="border-top: 1px solid var(--border)">
-    <div class="max-w-5xl mx-auto">
-      <div class="section-label mb-3">ติดต่อ</div>
-      <h2 class="en font-bold mb-4" style="font-size: clamp(32px, 5vw, 56px); letter-spacing:-0.02em; line-height:1.1;">
-        Ready to<br/><span class="accent">build something?</span>
-      </h2>
-      <p class="mb-12 max-w-sm" style="color:var(--text-2); font-size:16px; line-height:1.7;">ปรึกษาฟรี ไม่มีค่าใช้จ่าย ไม่มีเงื่อนไข — ตอบภายใน 1 ชั่วโมง</p>
+  <!-- CONTACT / FINAL CTA -->
+  <section id="contact" class="py-24 px-6 relative z-10" style="border-top: 1px solid var(--border)">
+    <div class="max-w-5xl mx-auto reveal">
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl">
+      <!-- Dramatic CTA headline -->
+      <div class="text-center mb-16">
+        <div class="section-label mb-4">พร้อมเริ่ม?</div>
+        <h2 class="en font-extrabold mb-4" style="font-size: clamp(36px, 6vw, 64px); letter-spacing:-0.03em; line-height:1.1;">
+          Ready to<br/><span class="accent">build something?</span>
+        </h2>
+        <p class="max-w-md mx-auto" style="color:var(--text-2); font-size:16px; line-height:1.7;">ปรึกษาฟรี ไม่มีค่าใช้จ่าย ไม่มีเงื่อนไข — ตอบภายใน 1 ชั่วโมง</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
         <a href="https://line.me/ti/p/~eak_nu" target="_blank"
            class="card card-accent rounded-2xl p-6 flex items-center gap-4 group">
           <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0" style="background:rgba(0,200,80,0.15)">💬</div>
@@ -418,18 +721,81 @@
         </a>
       </div>
 
-      <p class="mt-8 text-sm" style="color:var(--text-3)">⏱ ตอบเร็ว &nbsp;·&nbsp; 🔒 NDA ได้ &nbsp;·&nbsp; 💳 โอน / PromptPay</p>
+      <p class="mt-8 text-sm text-center" style="color:var(--text-3)">⏱ ตอบเร็ว &nbsp;·&nbsp; 🔒 NDA ได้ &nbsp;·&nbsp; 💳 โอน / PromptPay</p>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="px-6 py-10" style="border-top: 1px solid var(--border)">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-      <span class="en font-bold text-base">Ekkarat<span class="accent">.</span></span>
-      <p class="text-sm" style="color:var(--text-3)">AI-Powered Developer · Thailand</p>
-      <p class="text-xs" style="color:var(--text-3)">Built with Claude Code</p>
+  <!-- FOOTER — Multi-column -->
+  <footer class="px-6 py-16 relative z-10" style="border-top: 1px solid var(--border)">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <!-- Brand -->
+        <div class="col-span-2 md:col-span-1">
+          <div class="en font-bold text-lg mb-3">Ekkarat<span class="accent">.</span></div>
+          <p class="text-sm" style="color:var(--text-2); line-height:1.6;">AI-Powered Developer<br/>Full-Stack · Thailand</p>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <div class="en font-semibold text-sm mb-3" style="color:var(--text-1)">Services</div>
+          <div class="space-y-2 text-sm" style="color:var(--text-2)">
+            <div>Landing Page</div>
+            <div>Chatbot</div>
+            <div>Web App</div>
+            <div>Automation</div>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div>
+          <div class="en font-semibold text-sm mb-3" style="color:var(--text-1)">Navigate</div>
+          <div class="space-y-2 text-sm" style="color:var(--text-2)">
+            <a href="#services" class="block hover:text-white transition-colors">บริการ</a>
+            <a href="#work" class="block hover:text-white transition-colors">ผลงาน</a>
+            <a href="#process" class="block hover:text-white transition-colors">ขั้นตอน</a>
+            <a href="#faq" class="block hover:text-white transition-colors">FAQ</a>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <div class="en font-semibold text-sm mb-3" style="color:var(--text-1)">Contact</div>
+          <div class="space-y-2 text-sm" style="color:var(--text-2)">
+            <div>Line: eak_nu</div>
+            <div>brtstore.4340@gmail.com</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-8" style="border-top: 1px solid var(--border)">
+        <p class="text-xs" style="color:var(--text-3)">© 2026 Ekkarat. All rights reserved.</p>
+        <p class="text-xs" style="color:var(--text-3)">Built with Claude Code · AI-Powered Development</p>
+      </div>
     </div>
   </footer>
+
+  <script>
+    // Scroll progress bar
+    const progressBar = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+      progressBar.style.transform = `scaleX(${progress})`;
+    }, { passive: true });
+
+    // Scroll-triggered reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
